@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>    
-                        <input type="submit" class="btn btn-primary" name="login" value="Log in">
+                        <input type="submit" class="btn btn-primary" name="login" value="LOGIN">
                 </form>
                     </td>
                 </tr>
