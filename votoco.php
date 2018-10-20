@@ -12,7 +12,7 @@
   height: 50%;
   left: 0%;
   top:25%;
-  box-shadow: 5px 3px 10px #666;
+  box-shadow: 5px 3px 10px #665;
   position: fixed;
   border-radius: 10px;
   opacity: 0.7;
