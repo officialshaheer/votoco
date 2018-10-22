@@ -36,6 +36,40 @@
             </center>    
         </div>
     </div>
+<!-- DATABASE CREATION -->
+<?php
+$servername = "localhost";
+$username   = "root";
+$password   = "";
+$conn = new mysqli($servername, $username, $password);
+$conn->query("CREATE DATABASE IF NOT EXISTS `votoco`");
+?>
+
+<?php
+ $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "votoco";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);   
+ $sql =  "CREATE TABLE admin (
+a_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+a_name VARCHAR(20) NOT NULL,
+a_pwd VARCHAR(8) NOT NULL)";
+ if($conn->query($sql)=== TRUE)
+        {
+            echo 'table is created succssfully';
+            $sql2 = "INSERT into admin (a_name,a_pwd) values ('admin','12345678')";
+            if($conn->query($sql2)=== TRUE){ echo "data added succesfully";}
+            else { echo "data adding error";}
+        }
+        else
+        {
+            echo 'Table creation error';
+        }
+?>
+
+
 <?php
 $servername = "localhost";
 $username   = "root";
