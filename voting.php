@@ -170,7 +170,15 @@ input[type="button"]:hover {
     </div>
 
     <div class="displayCandidates"><p align="center"><b> Hello, <?php $voters_id = $_SESSION['voters_id']; echo $voters_id; ?></b>
-    <div align="center" class="displayCandidatesContentfromDB"></div>
+    <div align="center" class="displayCandidatesContentfromDB">
+    <table>
+        <tr>
+          <td>
+            CANDIDATE DEPARTMENT :
+          </td>
+        </tr>
+      </table>  
+    </div>
   </p></div>
 
 </div>
