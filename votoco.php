@@ -51,28 +51,6 @@ input[type="button"]:hover {
 </head>
 <body>
 
-<?php
-
-$servername = "localhost";
-$username   = "root";
-$password   = "";
-
-$conn = new mysqli($servername, $username, $password);
-$sql = 'CREATE DATABASE votoco1';
-if ($conn->query($sql)) {
-    echo "Database my_db created successfully\n";
-    $sql2 = "CREATE table votoco1.users(id varchar(2))";
-    if ($conn->query($sql2)) {
-        echo "doneee";
-    } else {
-        echo "error ";
-    }
-} else {
-    echo 'Error creating database: ' . mysql_error() . "\n";
-}
-?>
-
-
 <div class="limiter">
    <div class="content-new">
       <center>
