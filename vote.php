@@ -102,12 +102,17 @@ if (isset($_POST['login'])) {
                 header('Location: voting.php');
                 }
                 else {
-                echo "Voting Permission is REVOKED for this user! Contact election authority.";
+                echo "<script>alert('Voting Permission is REVOKED for this user! Contact election authority.');</script>";
+                session_start();
+                $_SESSION['voters_id'] = "";
                 }
         }        
         else{
-            echo "Voter id or password is invalid!";
+            echo "<script>alert('Voter id or password is invalid!');</script>";
         }        
+}
+else {
+echo "<script>alert('Enter your voter id and password?');</script>";
 }
 ?>
 </body>

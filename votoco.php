@@ -9,7 +9,7 @@
 .content-new {
   background-color:black;
   width: 30%;
-  height: 50%;
+  height: 60%;
   left: 0%;
   top:25%;
   box-shadow: 5px 3px 10px #665;
@@ -183,10 +183,33 @@ input[type="button"]:hover {
                <input id="GrantBtn" type="button" name="" value="GRANT">
                <input id="RevokeBtn" type="button" name="" value="REVOKE">
             </div>
+
             <input id="myButton" type="button" name="login" value="System Allocation" onclick="showBox('sysAllocation')"><br><br>
             <input type="button" name="login" value="Adding Candidate" onclick="showBox('AddCandidate')"><br><br>
             <input type="button" name="login" value="Candidate Profile Update" onclick="showBox('ProfileUpdate')"><br><br>
-            <input type="button" name="login" value="Voter - Grant & Revoke" onclick="showBox('GrantRevoke')">
+            <input type="button" name="login" value="Voter - Grant & Revoke" onclick="showBox('GrantRevoke')"><br><br>
+            <input id="ResetSystem" type="button" name="login" value="RESET SYSTEM">
+
+
+            <script type="text/javascript">
+               $(function(){
+
+                  // Adding Candidate fn1
+                  $('#ResetSystem').click(function(event){
+                            
+                            $.ajax({
+                                url: 'process/resetSystem.php',
+                                type: 'GET',
+                                success: function(data){
+                                  alert(data);
+                                  //console.log(data);
+                                    //$('.result').html(data);                    
+                                }
+                              })
+                        });
+                });
+            </script> 
+
          </form>
       </center>
    </div>

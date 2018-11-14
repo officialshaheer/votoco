@@ -30,9 +30,10 @@ if(isset($_POST['system_hash'])){
     }
     elseif($status=='active'&&$permission=='TRUE') {
         echo json_encode(array('success' => false, "message"=>"This system is already logged in"));
-    }else{
+    }
+    else{
         echo json_encode(array('success' => false, "message"=>"Your system is not allocated to vote"));
     }
-
+    
 }
 ?>
