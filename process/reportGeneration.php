@@ -9,12 +9,12 @@
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    $sql = "select count(id) from voterslist having count(id) = (select count(id) from voterslist where voting_status = 'TRUE')";
+    $sql = "select count(id) from voterslist where voting_permission = 'GRANTED' having count(id) = (select count(id) from voterslist where voting_status = 'TRUE' )";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
 
 	if($row) {
-		$sql = "SELECT c_name, position, max(votes), votes from candidates group by position";
+		$sql = "SELECT c_name, position, votes from candidates";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_array($result);
  
