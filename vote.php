@@ -1,4 +1,28 @@
-<<<<<<< HEAD
+<?php 
+session_start();  
+if(!$_SESSION['system_hash']) {
+    header('Location: invalidnode.php');  
+}
+else {
+
+$servername = "localhost";
+$username   = "root";
+$password   = "";
+$dbname     = "votoco";
+
+$system_hash = $_SESSION['system_hash'];
+
+$conn = new mysqli($servername,$username,$password,$dbname);
+$sql = "SELECT node_status from systemlist WHERE system_hash = '$system_hash' ";
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($result);
+    $status = $row['node_status'];
+    
+    if($status=='active') {
+    $_SESSION['system_hash'] = $system_hash ;
+    }
+}
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +46,7 @@
    
 <body>
     <div class="limiter">
+        <a style="padding-left: 1200px;color: black;" href="logout_node.php">Log Out Node!</a>
         <div class="content_in_vote">
             <br>
            <br>
@@ -33,12 +58,12 @@
                 <tr>
                     <td>
                         <form action="" method="POST">
-                        <input type="text" name="voters_id" required="required"><br><br>
+                        <input type="text" name="voters_id"><br><br>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="password" name="pwd" required="required" placeholder="DD/MM/YYYY"><br><br>
+                        <input type="password" name="pwd" placeholder="DD/MM/YYYY"><br><br>
                     </td>
                 </tr>
                 <tr>
@@ -52,98 +77,30 @@
         </div>
     </div>
 
-<?php 
+<?php
 $servername = "localhost";
 $username   = "root";
 $password   = "";
 $dbname     = "votoco";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername,$username,$password,$dbname);
 
 if (isset($_POST['login'])) {
+            
     $voters_id = $_POST['voters_id'];
-    $voters_pass = $_POST['pwd'];
-    $sql   = "SELECT * from voterslist where voters_id = '$voters_id' and dob = '$voters_pass' ";
-    if ($conn->query($sql)->num_rows) {
+    $pass  = $_POST['pwd'];
+
+    $sql   = "SELECT * from voterslist where voters_id = '$voters_id' and dob = '$pass' ";
+        if ($conn->query($sql)->num_rows) {
         session_start();
-        $_SESSION['voters_id'] = $voters_id ;
+        $_SESSION['voters_id'] = $_POST['voters_id'];
         header('Location: voting.php');
-    } else {
+        }
+        else {
         // echo "User Not Found!";
-        $name = 'Enter your correct Voters ID';
-        print($name);
-    }
+        echo "Error";
+        }
 }
 ?>
-
-
-
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>VotoCo</title>
-<link rel="stylesheet" type="text/css" href="votostyle.css">
-</head>     
-   
-<body>
-    <div class="limiter">
-        <div class="content">
-            <br>
-           <br>
-           <br>
-           
-            <h2 align="center">Voter Login</h2>
-            <center>
-            <table>
-                <tr>
-                    <td>
-                        <form action="" method="POST">
-                        <input type="text" name="voters_id" required="required"><br><br>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="password" name="pwd" required="required" placeholder="DD/MM/YYYY"><br><br>
-                    </td>
-                </tr>
-                <tr>
-                    <td>    
-                        <input type="submit" class="btn btn-primary" name="login" value="LOGIN">
-                </form>
-                    </td>
-                </tr>
-            </table>
-            </center>    
-        </div>
-    </div>
-
-<?php 
-$servername = "localhost";
-$username   = "root";
-$password   = "";
-$dbname     = "votoco";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if (isset($_POST['login'])) {
-    $voters_id = $_POST['voters_id'];
-    $voters_pass = $_POST['pwd'];
-    $sql   = "SELECT * from voterslist where voters_id = '$voters_id' and dob = '$voters_pass' ";
-    if ($conn->query($sql)->num_rows) {
-        header('Location: voting.php');
-    } else {
-        // echo "User Not Found!";
-        $name = 'Enter your correct Voters ID';
-        print($name);
-    }
-}
-?>
-
-
-
-</body>
-</html>
->>>>>>> 50712c5a151373f2f775ad87eabddb8355052a3b
