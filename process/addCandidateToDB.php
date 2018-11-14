@@ -19,13 +19,11 @@
 	if( isset( $_POST['c_id'] ) ) {
 
 		$sql1 = "SELECT * from `candidates` where c_id = '$c_id' ";
-		mysqli_query($conn,$sql1);
 			if ($conn->query($sql1)->num_rows) {
 			echo "Already Entered!";
 			}
 			else {
 			$sql = "INSERT into `candidates` (c_id,c_name,c_department,position) VALUES ('$c_id','$c_name','$c_department','$c_position')"; 
-			mysqli_query($conn,$sql);
 				if(mysqli_query($conn,$sql)) {
 				echo "entered the candidate!";
 				}
