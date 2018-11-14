@@ -92,14 +92,22 @@ if (isset($_POST['login'])) {
 
     $sql   = "SELECT * from voterslist where voters_id = '$voters_id' and dob = '$pass' ";
         if ($conn->query($sql)->num_rows) {
-        session_start();
-        $_SESSION['voters_id'] = $_POST['voters_id'];
-        header('Location: voting.php');
-        }
-        else {
-        // echo "User Not Found!";
-        echo "Error";
-        }
+            $sql = "SELECT voting_permission from voterslist where voters_id = '$voters_id' ";
+            $result = mysqli_query($conn,$sql);
+            $row = mysqli_fetch_array($result);
+                
+                if($row['voting_permission']=='GRANTED') {
+                session_start();
+                $_SESSION['voters_id'] = $_POST['voters_id'];
+                header('Location: voting.php');
+                }
+                else {
+                echo "Voting Permission is REVOKED for this user! Contact election authority.";
+                }
+        }        
+        else{
+            echo "Voter id or password is invalid!";
+        }        
 }
 ?>
 </body>
