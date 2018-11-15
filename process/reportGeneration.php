@@ -14,9 +14,16 @@
     $row = mysqli_fetch_array($result);
 
 	if($row) {
-		$sql = "SELECT c_name, position, votes from candidates";
+
+		$sql = "select c_name,position,votes from candidates";
+		// $sql = "SELECT c_name as c_name, position as position, votes as newvote from candidates where c_id in (select c_id from candidates group by position having max(newvote))"; 
+		//$sql = "select * from candidates where c_id in (select c_id from candidates group by position ) having max(votes)";
+
+		// $sql = "select * from candidates as candidate  group by candidate.position having max(votes)";
 		$result = mysqli_query($conn, $sql);
-		$row = mysqli_fetch_array($result);
+	//	$row = mysqli_fetch_array($result);
+
+		print_r($result);
  
 		foreach ($result as $value) {										
 			 

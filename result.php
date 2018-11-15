@@ -62,9 +62,11 @@ table {
             <br>
            
             <h2 class="heading" align="center" style="font-size:20px">College Union Election Results - 2018</h2><br>
-            <center>
-            </center>
-            <div class="electionStatus"><div class="barGraphcount"></div></div>   
+            
+            <div class="showCenter" style="position: fixed;left: 36%;top: 40%;">
+            <div class="electionStatus"><div class="barGraphcount"></div></div> 
+            </div>  
+
         </div>
     
     </div>

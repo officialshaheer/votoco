@@ -47,6 +47,14 @@ input[type="button"]:hover {
   border-radius: 10px;
   opacity: 0.9;
 }
+.limitervotoco {
+  background-image: url(bg2.jpg);
+  background-repeat: none;
+  background-size: 100% 100%;
+  width: 100%;
+  height:100%;
+  position: fixed;
+}
 </style>
 </head>
 <body>
@@ -73,7 +81,8 @@ input[type="button"]:hover {
 ?> -->
 
 
-<div class="limiter">
+<div class="limitervotoco">
+  <div class="header" style="background-color: black;opacity:0.6;width: 100%;height: 10%;top: 3%;left: 0%;position: fixed;font-size: 48px;color: white;font:'Lucida Grande';border-radius: 16px;padding-top: 20px;"><center>ADMIN PANEL</center></div>
    <div class="content-new">
       <center>
          <br>
@@ -86,8 +95,8 @@ input[type="button"]:hover {
 
                 <label style="color:white;">Nodes Available :</label>
                  <div class="retrieveNodes"></div><br>
-                 <input id="allocateSystemBtn" type="button" name="AddCandidate" value="Allocate System">
-                 <div class="giveUrl"></div><br>
+                 <input id="allocateSystemBtn" type="button" name="AddCandidate" value="Allocate System"><br>
+                 <div class="giveUrl" style="position: fixed;left: 5%;top: 90%;width: 100%;"></div><br>
                 <label style="color:white;">Active Nodes :</label>
                 <div class="activeNodes"></div>
                 <a style="color: white;" href="resetNodes.php">DESTROY SESSION</a>
