@@ -33,7 +33,7 @@ table {
 }
 .electionStatus {
   width: 100%;
-  color:black;
+  color:white;
   height: 10%;
   top:90%;
   left: 0%;

@@ -18,7 +18,7 @@
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_array($result);
  
-		foreach ($result as $value) {
+		foreach ($result as $value) {										
 			 
 			echo "<table style='border-spacing: 5px;color:white;border-bottom: 1px solid #ddd;'><colgroup><col style='width: 30%'><col style='width: 30%'><col style='width: 30%'></colgroup><tr align='left'><td>".$value['c_name']."</td><td>".$value['position']."</td>";
             echo "<td>".$value['votes']."</td></tr>"; 
