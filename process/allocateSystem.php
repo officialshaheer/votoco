@@ -9,6 +9,10 @@
 
     $node_id = $_POST['node_id'];
 
+	$dt = new DateTime();
+	$election_year = $dt->format('Y');		
+	
+	$sql = "INSERT into election (election_year,election_status,election_starting_time,election_ending_time) values ($election_year,'started',)";
     // session_start();
     // $_SESSION['system_hash'] = $node_id;
 	    

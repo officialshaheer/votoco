@@ -235,7 +235,7 @@ input[type="button"]:hover {
 <script type="text/javascript">
   $(function(){
    $( "#c_id" ).keyup(function() {
-  //alert('KeyUp is Working!');
+    //alert('KeyUp is Working!');
   var c_id = $('#c_id').val();     
  
   $.ajax({
