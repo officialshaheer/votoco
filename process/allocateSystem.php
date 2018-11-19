@@ -10,12 +10,13 @@
     $node_id = $_POST['node_id'];
 
 	$dt = new DateTime();
-	$election_year = $dt->format('Y');		
-	
-	$sql = "INSERT into election (election_year,election_status,election_starting_time,election_ending_time) values ($election_year,'started',)";
+	$election_year = $dt->format('Y');	
+
+	$sql = "INSERT into election (election_year,election_status,election_starting_time,election_ending_time) values ($election_year,'started',CURRENT_TIME(),ADDTIME(CURRENT_TIME(), '2:00:00'))";
+	mysqli_query($conn,$sql);
     // session_start();
     // $_SESSION['system_hash'] = $node_id;
-	    
+	   
 	if( isset( $_POST['node_id'] ) ) {
 		$sql = "UPDATE systemlist SET permission = 'TRUE' where system_hash = '".$node_id."'";
 			if ($conn->query($sql)) {
