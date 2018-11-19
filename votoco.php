@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="votostyle.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
-
+<script type="text/javascript" src="date_time.js"></script>
 <style type="text/css">
 .content-new {
   background-color:black;
@@ -55,6 +55,14 @@ input[type="button"]:hover {
   height:100%;
   position: fixed;
 }
+ .TimeContainer {
+      background-color: black;
+      opacity: .7;
+      width: auto;
+      border-radius: 15px; 
+      color: white;
+      font-size: 40px;
+    }
 </style>
 </head>
 <body>
@@ -82,7 +90,10 @@ input[type="button"]:hover {
 
 
 <div class="limitervotoco">
-  <div class="header" style="background-color: black;opacity:0.6;width: 100%;height: 10%;top: 3%;left: 0%;position: fixed;font-size: 48px;color: white;font:'Lucida Grande';border-radius: 16px;padding-top: 20px;"><center>ADMIN PANEL</center></div>
+  <div class="header" style="background-color: green;box-shadow: 2px 3px 4px black;opacity:0.6;width: 100%;height: 10%;top: 3%;left: 0%;position: fixed;font-size: 48px;color:white;font:'Lucida Grande';border-radius: 16px;padding-top: 20px;"><center>ADMIN PANEL <span id="date_time" style="padding-left: 700px;text-shadow: 2px 2px 4px #000000;font-family: "Gill Sans", sans-serif;"></span>
+  <script type="text/javascript">window.onload = date_time('date_time');</script>
+  </div></center>
+  
    <div class="content-new">
       <center>
          <br>

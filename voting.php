@@ -231,6 +231,7 @@ $(function(){
                 var cId = $(this).attr('data-cid');
                 $(this).attr('disabled', 'disabled');
 
+
                 $.ajax({
                     url: 'process/voteAdding.php',
                     type: 'POST',
@@ -301,12 +302,14 @@ $(document).ready(function() {
   $(document).ready(function(){
     
     var voters_id = "<?php echo $_SESSION['voters_id'] ?>";
+    
       
       $.ajax({
         url: 'process/voterStatusCheck.php',
         type: 'POST',
         data: {
-          voters_id: voters_id
+          voters_id: voters_id,
+          election_id: election_id
         },
         success: function(data){  
           var val =  new String(data);

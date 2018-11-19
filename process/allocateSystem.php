@@ -7,13 +7,23 @@
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    $node_id = $_POST['node_id'];
-
+    $node_id = $_POST['node_id']; 
+ 
 	$dt = new DateTime();
 	$election_year = $dt->format('Y');	
 
 	$sql = "INSERT into election (election_year,election_status,election_starting_time,election_ending_time) values ($election_year,'started',CURRENT_TIME(),ADDTIME(CURRENT_TIME(), '2:00:00'))";
 	mysqli_query($conn,$sql);
+
+	$sql = "SELECT election_id,election_ending_time from election where election_id='4' ";
+	$r = mysqli_query($conn,$sql);
+	$result = mysqli_fetch_array($r);
+	session_start();
+	$_SESSION['election_id'] = $result['election_id'];
+	$_SESSION['election_ending_time'] = $result['election_ending_time']; 
+
+	// echo $result['election_ending_time'];
+
     // session_start();
     // $_SESSION['system_hash'] = $node_id;
 	   

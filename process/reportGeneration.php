@@ -23,7 +23,7 @@
 		$result = mysqli_query($conn, $sql);
 	//	$row = mysqli_fetch_array($result);
 
-		print_r($result);
+		// print_r($result);
  
 		foreach ($result as $value) {										
 			 
