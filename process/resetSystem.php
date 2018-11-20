@@ -13,6 +13,8 @@ $sql = "TRUNCATE `votoco`.`temp_voters`";
 mysqli_query($conn,$sql);
 $sql = "TRUNCATE `votoco`.`election`";
 mysqli_query($conn,$sql);
+$sql = "TRUNCATE `votoco`.`sessions`";
+mysqli_query($conn,$sql);
 echo "The system has been resetted!";
 
 ?>

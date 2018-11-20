@@ -9,51 +9,58 @@
 .content-new {
   background-color:black;
   width: 30%;
-  height: 60%;
+  height: 70%;
   left: 0%;
   top:25%;
   box-shadow: 5px 3px 10px #665;
   position: fixed;
   border-radius: 10px;
   opacity: 0.7;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 input[type="button"] {
-  background-color: white;
+  background-color: #900c3f;
   border-radius: 10px;
   width: 175px;
   height: 40px;
   border:0;
-  color: black;
+  color: white;
   box-shadow: 1px 3px 5px #000000;
-  opacity: 0.9;
+  opacity: 1;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 input[type="button"]:hover {
-  background-color: white;
+  background-color: #581845;
   border-radius: 10px;
   width: 175px;
   height: 40px;
   border:0;
-  color: black;
+  color: white;
   box-shadow: 1px 3px 5px #000000;
   cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .answer_list {
   display:none;
   width: 700px;
-  height: 530px;
+  height: 70%;
   position: fixed;
   top:25%;
   left:30%;
   border-radius: 10px;
   opacity: 0.9;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .limitervotoco {
-  background-image: url(bg2.jpg);
+  /*background-image: url(bg2.jpg);*/
+  background-color: #E0F4F5;
+  /*background-color: #D5E1F1;*/
   background-repeat: none;
   background-size: 100% 100%;
   width: 100%;
   height:100%;
   position: fixed;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
  .TimeContainer {
       background-color: black;
@@ -62,12 +69,22 @@ input[type="button"]:hover {
       border-radius: 15px; 
       color: white;
       font-size: 40px;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     }
+.timerwindow {
+  background-color: #131E39;
+  border-radius: 15px;
+  width: 15%;
+  height: 10%;
+  position: fixed;
+  left:85%;
+  top:0%;
+  opacity: 1;
+}
 </style>
 </head>
 <body>
-
-<!-- <?php
+ <!-- <?php
 
 // $servername = "localhost";
 // $username   = "root";
@@ -90,9 +107,10 @@ input[type="button"]:hover {
 
 
 <div class="limitervotoco">
-  <div class="header" style="background-color: green;box-shadow: 2px 3px 4px black;opacity:0.6;width: 100%;height: 10%;top: 3%;left: 0%;position: fixed;font-size: 48px;color:white;font:'Lucida Grande';border-radius: 16px;padding-top: 20px;"><center>ADMIN PANEL <span id="date_time" style="padding-left: 700px;text-shadow: 2px 2px 4px #000000;font-family: "Gill Sans", sans-serif;"></span>
-  <script type="text/javascript">window.onload = date_time('date_time');</script>
-  </div></center>
+  <div class="header" style="background-color: black;opacity:0.6;width: 100%;height: 7%;top: 0%;left: 0%;position: fixed;font-size: 28px;color:white;font-family: -apple-system, BlinkMacSystemFont, sans-serif;padding-top: 20px;">&nbsp&nbsp&nbsp&nbspVotoCo - ADMIN PANEL </div><div class="timerwindow"><center><span id="date_time" style="text-shadow: 2px 2px 4px #000000;font-size:50px;font-family: -apple-system, BlinkMacSystemFont, sans-serif;color: white;"></span>
+  <script type="text/javascript">window.onload = date_time('date_time');</script></center>
+  </div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <p align="right"><img src="logo.png"  width="300px" height="300px" /></p>
   
    <div class="content-new">
       <center>
@@ -104,13 +122,13 @@ input[type="button"]:hover {
                <br>
                <h2> List of Nodes!</h2>
 
-                <label style="color:white;">Nodes Available :</label>
+                <label style="color:white;font-family: -apple-system, BlinkMacSystemFont, sans-serif;">Nodes Available :</label>
                  <div class="retrieveNodes"></div><br>
                  <input id="allocateSystemBtn" type="button" name="AddCandidate" value="Allocate System"><br>
-                 <div class="giveUrl" style="position: fixed;left: 5%;top: 90%;width: 100%;"></div><br>
+                 <div class="giveUrl" style="position: fixed;left: 5%;top: 80%;width: 100%;"></div><br>
                 <label style="color:white;">Active Nodes :</label>
                 <div class="activeNodes"></div>
-                <a style="color: white;" href="resetNodes.php">DESTROY SESSION</a>
+                <a style="color: white;font-family: -apple-system, BlinkMacSystemFont, sans-serif;" href="resetNodes.php">DESTROY SESSION</a>
         
 
 
@@ -123,23 +141,23 @@ input[type="button"]:hover {
                  <table>
                   <tr>
                     <td>
-                 <label style="color:white;">Candidate ID :</label></td><td><input type="text" id="c_id"><div style="color: white;" class="tikholder"></div>
+                 <label style="color:white;font-family: -apple-system, BlinkMacSystemFont, sans-serif;">Candidate ID :</label></td><td><input type="text" id="c_id"><div style="color: white;" class="tikholder"></div>
                     </td>
                   </tr>
                   
                   <tr>
                     <td>
-                 <label style="color:white;">Candidate Name :</label></td><td><input type="text" id="candidatename"><br>
+                 <label style="color:white;font-family: -apple-system, BlinkMacSystemFont, sans-serif;">Candidate Name :</label></td><td><input type="text" id="candidatename"><br>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                 <label style="color:white;">Candidate Department :</label></td><td><input type="text" id="can_department"><br>
+                 <label style="color:white;font-family: -apple-system, BlinkMacSystemFont, sans-serif;">Candidate Department :</label></td><td><input type="text" id="can_department"><br>
                     </td>
                   </tr>
                   <tr>
                     <td>  
-                 <label style="color:white;">Position :</label></td><td><input type="text" id="can_position"><br>
+                 <label style="color:white;font-family: -apple-system, BlinkMacSystemFont, sans-serif;">Position :</label></td><td><input type="text" id="can_position"><br>
                     </td>
                   </tr>
                   <tr>
@@ -204,6 +222,7 @@ input[type="button"]:hover {
                <input id="RevokeBtn" type="button" name="" value="REVOKE">
             </div>
 
+            <input id="startElectionBtn" type="button" name="login" value="Start Election"><br><br>
             <input id="myButton" type="button" name="login" value="System Allocation" onclick="showBox('sysAllocation')"><br><br>
             <input type="button" name="login" value="Adding Candidate" onclick="showBox('AddCandidate')"><br><br>
             <input type="button" name="login" value="Candidate Profile Update" onclick="showBox('ProfileUpdate')"><br><br>
@@ -421,13 +440,12 @@ input[type="button"]:hover {
 
                 var node_id = $('#nodesList').val();
                 
-                
                 $.ajax({
                     url: 'process/allocateSystem.php',
                     type: 'POST',
                     data: {
                         node_id: node_id,
-                        },
+                       },
                 success: function(data){
                       // alert(data);
                       // console.log(data);
@@ -455,7 +473,22 @@ input[type="button"]:hover {
 
   </script>
 
+<script type="text/javascript">
+ $(function(){  
+   $('#startElectionBtn').click(function(event){
 
+                $.ajax({
+                    url: 'process/startElection.php',
+                    type: 'GET',
+                success: function(data){
+                      alert('Election has started!');
+                      // console.log(data);
+                      // $('.giveUrl').html(data);                    
+                    }
+                  })
+            });
+});
+</script>
   
 
 

@@ -23,45 +23,70 @@ $sql = "SELECT node_status from systemlist WHERE system_hash = '$system_hash' ";
     }
 }
 ?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>VotoCo</title>
 <link rel="stylesheet" type="text/css" href="votostyle.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="date_time.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style type="text/css">
-    
-    .content_in_vote {
-    background-color:#0000FF;
-    width: 20%;
-    height: 300px;
-    left: 40%;
-    top:25%;
-    box-shadow: 5px 3px 10px #666;
-    position: fixed;
-    border-radius: 10px;
-    opacity: 1;
+
+.content_in_vote {
+  background-color:green;
+  width: 20%;
+  height: 300px;
+  left: 40%;
+  top:25%;
+  box-shadow: 5px 3px 10px #666;
+  position: fixed;
+  border-radius: 10px;
+  opacity: 0.6;
 }
 .time {
-  background-color: black;
-  width: 165px;
-  height:50px;
+  background-color: #D1E5F0;
+  width: 9%;
+  height:40px;
   position: fixed;
-  left:73.3%;
-  top:9.5%;
+  left:73.5%;
+  top:10%;
   opacity: 1;
-  border-radius: 16px; 
-  box-shadow: 2px 1px 6px;
-} 
+  border-radius: 16px;
+  padding-top: 3px; 
+  
+}  
+input[type="submit"] {
+  background-color: #900c3f;
+  border-radius: 10px;
+  width: 175px;
+  height: 40px;
+  border:0;
+  color: white;
+  box-shadow: 1px 3px 5px #000000;
+  opacity: 1;
+}
+input[type="submit"]:hover {
+  background-color: #581845;
+  border-radius: 10px;
+  width: 175px;
+  height: 40px;
+  border:0;
+  color: white;
+  box-shadow: 1px 3px 5px #000000;
+  cursor: pointer;
+}
+input {
+    text-align: center;
+}
 </style>
 </head>     
    
 <body>
-    <div class="limiter">Election id : <b><?php echo $_SESSION['election_id']; ?></b><br>Election ending time :<b><?php echo $_SESSION['election_ending_time']; ?></b>
-            <div class="time">
-            <span id="date_time" style="color:white;text-shadow: 2px 2px 4px #000000;font-family: 'Gill Sans';font-size: 40px;"></span>
-            <script type="text/javascript">window.onload = date_time('date_time');</script></div>
+    <div class="limiter">Election id : <b><?php echo $_SESSION['e_id']; ?></b><br>Election ending time :<b><?php echo $_SESSION['election_ending_time']; ?></b>
+            <div class="time"><center>
+            <span id="date_time" style="color:#1B0914;font-family: -apple-system, BlinkMacSystemFont, sans-serif;font-size: 30px;"></span>
+            <script type="text/javascript">window.onload = date_time('date_time');</script></center></div>
 
         <a style="padding-left: 1000px;color: black;" href="logout_node.php">Log Out Node!</a>
         <div class="content_in_vote">
@@ -69,7 +94,7 @@ $sql = "SELECT node_status from systemlist WHERE system_hash = '$system_hash' ";
            <br>
            <br>
            
-            <h2 align="center">Voter Login</h2>
+            <h2 align="center" style="color:white;font-family: -apple-system, BlinkMacSystemFont, sans-serif;">Voter Login</h2>
             <center>
             <table>
                 <tr>
@@ -134,14 +159,48 @@ echo "<script>alert('Enter your voter id and password?');</script>";
 ?>
 
 <script type="text/javascript">
+
+$(document).ready(function() {
+        
+   var repeater;
+
+function doWork() {
+    var election_id = "<?php echo $_SESSION['e_id'] ?>";
+    var election_ending_time = "<?php echo $_SESSION['election_ending_time'] ?>";
+    // alert(election_id);
     
- function explode(){
-  alert("Boom!");
+    $.ajax({
+        url: 'process/ElectionStatusCheck.php',
+        type: 'POST',
+        data: {
+          election_id: election_id,
+          election_ending_time: election_ending_time
+        },
+        success: function(data){
+        //alert(data);  
+           var val =  new String(data);
+           if(val=="TRUE"){
+           alert("Election Time Out!");
+           window.location = "http://localhost/votoco/electionInvalidate.php";
+           }
+           else{
+           // alert("Election in progress");
+
+          }
+        }
+    });       
+
+
+
+
+
+ // alert('Election timeout!\nYou are going to get redirected to results page.');
+ repeater = setTimeout(doWork, 4000);
 }
-setTimeout(explode, 2000);
 
-
-
+doWork();   
+    
+});
 </script>
 
 

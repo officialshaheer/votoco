@@ -23,6 +23,7 @@
   position: fixed;
   border-radius: 10px;
   opacity: 0.7;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 input[type="button"] {
   background-color: white;
@@ -33,6 +34,7 @@ input[type="button"] {
   color: black;
   box-shadow: 1px 3px 5px #000000;
   opacity: 0.9;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 input[type="button"]:hover {
   background-color: white;
@@ -43,6 +45,7 @@ input[type="button"]:hover {
   color: black;
   box-shadow: 1px 3px 5px #000000;
   cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .answer_list {
   display:none;
@@ -53,6 +56,7 @@ input[type="button"]:hover {
   left:30%;
   border-radius: 10px;
   opacity: 0.9;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .content {
   background-color:#0000FF;
@@ -64,9 +68,10 @@ input[type="button"]:hover {
   position: fixed;
   border-radius: 10px;
   opacity: 0.4;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .content_in_voting_page {
-  background-color:white;
+  background-color:#091A1B;
   width: 70%;
   height: 700px;
   left: 15%;
@@ -75,10 +80,12 @@ input[type="button"]:hover {
   position: fixed;
   border-radius: 10px;
   opacity: 0.8;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .dropdown {
     float: left;
     overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .dropdown .dropbtn {
@@ -90,11 +97,13 @@ input[type="button"]:hover {
     background-color: green;
     font-family: inherit;
     margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
     background-color: red;
     cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .dropdown-content {
@@ -104,6 +113,7 @@ input[type="button"]:hover {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 
 }
 
@@ -114,17 +124,21 @@ input[type="button"]:hover {
     text-decoration: none;
     display: block;
     text-align: left;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .dropdown-content a:hover {
     background-color: #ddd;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   }
 .dropdown-content:hover{
   cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .dropdown:hover .dropdown-content {
     display: block;
     cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .btnStyle {
     font-size: 16px;    
@@ -138,18 +152,20 @@ input[type="button"]:hover {
     font-family: inherit;
     margin: 0;
     cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .displayCandidates {
-    background-color: white;
+    background-color: #091A1B;
     width: 55%;
     height: 600px;
     left: 30%;
     top:15%;
     box-shadow: 5px 3px 10px #666;
     position: fixed;
-    opacity: 0.7;
+    opacity: 0.9;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
-td,th { width: 33%; }
+td,th { width: 33%;font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
 
 .checkifVoted {
   color: red;
@@ -159,30 +175,40 @@ td,th { width: 33%; }
   left:0%;
   font-size: 40px;
   opacity: 0.6;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .electionStatus {
-  background-color: white;
-  width: 100%;
-  color:black;
-  height: 10%;
-  top:90%;
-  left: 0%;
-  opacity: 1;
+  background-color: black;
+  position: fixed;
+  width: 12%;
+  border-radius: 16px;
+  color:white;
+  padding-left: 16px;
+  height: 12%;
+  left: 42%;
+  top:2%;
+  opacity: 0.6;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .graph {
   position: fixed;
-  padding-left:20px;
-  width: 50vw;
+ /* padding-left:20px;*/
+  width: 100%;
   height:auto;
   top:85%;
   text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
-
+body {
+  color:white;
+}
 </style>
 </head>
 <body>
 <div class="limiter">
-  
+ 
+  <img src="votoCologo.png"  width="120px" height="120px" />
+
   <div class="content_in_voting_page">
     <p>
     <div class="dropdown">
@@ -198,25 +224,21 @@ td,th { width: 33%; }
       <button class="btnStyle menu-item" value="3rdYEARREP" id="3rdYEARREP">3<sup>rd</sup> Year REP</button><br>  
       <button class="btnStyle menu-item" value="4thYEARREP" id="4thYEARREP">4<sup>th</sup> Year REP</button>    
       </div>
-    </div>
-   </p>
-    </div>
 
-    <div class="displayCandidates"><p align="center"><b> Hello, <?php $voters_id = $_SESSION['voters_id']; echo $voters_id; ?></b>&nbsp&nbsp&nbsp&nbsp<a  style='text-decoration: none;color: black' href="logout.php"><b>Logout</b></a><br><br>
+    </div>
+     </p>
+  
+
+    </div>
+    <div class="electionStatus"></div>
+    <div class="displayCandidates"><p align="center"><b> Hello, <?php $voters_id = $_SESSION['voters_id']; echo $voters_id; ?></b>&nbsp&nbsp&nbsp&nbsp<a  style='text-decoration: none;color: white' href="logout.php"><b>Logout</b></a><br><br>
       <table style='border-spacing: 5px;border-bottom: 2px solid #000;' width='90%'><tr align="left"><th>Candidate ID</th><th>Candidate Name</th><th>Department</th><th>Position</th><th>  Vote  </th></tr></table>
     <div align="center" class="displayCandidatesContentfromDB">
 
     </div>
     <div class="checkifVoted"></div>  
 
-    <div class="graph">
-      
-      <div class="electionStatus">
-      </div>
-
-    </div>
-
-
+    
   </p></div>
 
 
@@ -318,14 +340,62 @@ $(document).ready(function() {
             window.location.replace("logout.php");
           }
           else{
-            alert("You can vote now");          }
-         }
+            alert("You can vote now");          
+          }
+        }
       
   
 
   });
 });      
 </script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+        
+   var repeater;
+
+function doWork() {
+    var election_id = "<?php echo $_SESSION['e_id'] ?>";
+    var election_ending_time = "<?php echo $_SESSION['election_ending_time'] ?>";
+    // alert(election_id);
+    
+    $.ajax({
+        url: 'process/ElectionStatusCheck.php',
+        type: 'POST',
+        data: {
+          election_id: election_id,
+          election_ending_time: election_ending_time
+        },
+        success: function(data){
+        //alert(data);  
+           var val =  new String(data);
+           if(val=="TRUE"){
+           alert("Election Time Out!");
+           window.location = "http://192.168.43.111/votoco/electionInvalidate.php";
+           }
+           else{
+           // alert("Election in progress");
+
+          }
+        }
+    });       
+
+
+
+
+
+ // alert('Election timeout!\nYou are going to get redirected to results page.');
+ repeater = setTimeout(doWork, 4000);
+}
+
+doWork();   
+    
+});
+</script>
+
+
 
 </body>
 </html>

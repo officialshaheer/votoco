@@ -12,7 +12,7 @@
 .result {
     background-color: #000000;
     width:70%;
-    height:80%;
+    height:auto;
     opacity: 0;
     left:15%;
     top:15%;
@@ -21,24 +21,38 @@
     box-shadow: 6px 4px 10px;
     padding-left: 14px;
     padding-right: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
+.votersdetails {
+    background-color: #000000;
+    width:28%;
+    height:100%;
+    opacity: 0.7;
+    left:72%;
+    top:0%;
+    position: fixed;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 h2 {
     color: white;
     text-shadow: 2px 2px 8px black;
     opacity: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 table {
     width: 100%;
     height: 1%;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .electionStatus {
   width: 100%;
-  color:black;
+  color:white;
   height: 10%;
   top:90%;
   left: 0%;
-  padding-left:15px; 
+  padding-left:260px; 
   opacity: 1;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .graph {
   position: fixed;
@@ -47,6 +61,7 @@ table {
   height:auto;
   top:85%;
   text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 </style>
@@ -57,13 +72,13 @@ table {
 </head>     
    
 <body>
-    <div class="limiter">
+ 
+    <div class="limiter"><div class="votersdetails"></div>
         <div class="result">
             <br>
-           
-            <h2 class="heading" align="center" style="font-size:20px">College Union Election Results - 2018</h2><br>
-            <center>
-            </center>
+            
+            <h2 class="heading" align="center" style="font-size:20px">College Union Election Results - 2018</h2>
+            
             <div class="electionStatus"><div class="barGraphcount"></div></div>   
         </div>
     
@@ -72,8 +87,36 @@ table {
 <div class="demo"></div>
 
 <script type="text/javascript">
+
+
 $(document).ready(function() {
-   $("div.result").animate({opacity:'0.9',width:'55%',position:'fixed'}, 2000 );
+
+  var repeater;
+
+  function doWork() {
+
+    $.ajax({
+        url: 'process/displayVotersInResult.php',
+        type: 'GET',
+                     
+        success: function(data){
+          $('.votersdetails').html(data);
+        } 
+
+    });
+
+   repeater = setTimeout(doWork, 4000);
+  }
+
+doWork();   
+      
+
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $("div.result").animate({opacity:'0.7',width:'50%',position:'fixed'}, 2000 );
    $("h2").animate({opacity:'1'}, 2000 );
     $.ajax({
       url: 'process/reportGeneration.php',
@@ -85,13 +128,13 @@ $(document).ready(function() {
       // console.log(data);
         if(data == "false"){
           checkStatusProgress();
-          $('.result').append("<center><p style='color:white;font-size:18px'><b>Voting in progress. Please wait!</b></p></center>"); 
+          $('.result').append("<center><p style='color:white;font-size:18px'><b><br>Voting in progress. Please wait!</b></p></center>"); 
         } else {
           $('.demo').fireworks({sound: true,opacity: 0.3,width: '100%',height: '100%'});
           $('.result').append(data);
         } 
       } 
-    })
+    });
 
     function checkStatusProgress(){
     $.ajax({
